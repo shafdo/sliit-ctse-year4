@@ -20,6 +20,11 @@ phases:
     commands:
       # - echo "Building the NestJS application..."
       # - pnpm build
+      - echo "Running tests with Jest..."
+      - npm run test
+
+      # - echo "Building the NestJS application..."
+      # - pnpm build
       - echo "Building the Docker image..."
       - docker build -t $REPOSITORY_URI:latest .
       - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
