@@ -12,7 +12,7 @@ export const createUser = async (req: Request, res: Response) => {
 
   // Remove password
   if (info.data?.password) {
-    delete info.data.password;
+    delete (info.data as any).password;
   }
 
   return response({
