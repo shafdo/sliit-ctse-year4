@@ -13,7 +13,7 @@ const userRouter = express.Router();
 userRouter.get("/", (req, res) => {
   return res.json({
     status: 200,
-    msg: "CTSE user management api running 123 test.",
+    msg: "CTSE user management api running.",
   });
 });
 userRouter.post("/", validateData(userCreateSchema), createUser);
