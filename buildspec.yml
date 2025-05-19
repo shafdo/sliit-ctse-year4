@@ -10,6 +10,9 @@ phases:
 
   pre_build:
     commands:
+      - echo "Installing and run SonarQube..."
+      - npm install -g @sonar/scan
+      - sonar -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.token=$SONAR_TOKEN -Dsonar.projectKey=$SONAR_PROJECT_KEY -Dsonar.organization=$SONAR_ORGANIZATION
       - echo "Installing project dependencies using pnpm..."
       - pnpm install --frozen-lockfile
       - echo "Logging in to Amazon ECR..."
@@ -19,6 +22,10 @@ phases:
   build:
     commands:
       # - echo "Building the NestJS application..."
+      # - pnpm build
+      - echo "Running tests with Jest..."
+      - npm run test
+
       # - pnpm build
       - echo "Running tests with Jest..."
       - npm run test
